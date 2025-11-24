@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 1:Basic JS Greeting</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 50px;
+      }
+      #output {
+        margin-top: 20px;
+        font-size: 18px;
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Selamat Datang di Hari 1 Challenge</h1>
+    <p>Masukkan nama kamu di bawah ini:</p>
+
+    <!-- Input field untuk nama -->
+    <input type="text" id="nameInput" placeholder="Masukkan nama" />
+
+    <!-- Tombol untuk klik -->
+    <button id="greetButton">Sapa Saya!</button>
+
+    <!-- Area untuk menampilkan hasil -->
+    <div id="output"></div>
+
+    <script>
+      // Dasar JS: Mendapatkan elemen HTML menggunakan DOM
+      const nameInput = document.getElementById("nameInput"); // Variabel untuk input
+      const greetButton = document.getElementById("greetButton"); // Variabel untuk tombol
+      const outputDiv = document.getElementById("output"); // Variabel untuk div output
+
+      // Fungsi untuk membuat sapaan
+      function generateGreeting() {
+        // Ambil nilai dari input (variabel)
+        const name = nameInput.value;
+
+        // Jika nama kosong, beri pesan default
+        if (nameInput === "") {
+          outputDiv.textContent = "Silakan masukkan nama terlebih dahulu!";
+        } else {
+          // Buat pesan sapaan dan tampilkan di div
+          outputDiv.textContent = `Halo, ${name}! Selamat belajar JS hari ini!`;
+        }
+      }
+
+      // Event listener: Ketika tombol diklik, jalankan fungsi
+      greetButton.addEventListener("click", generateGreeting);
+    </script>
+  </body>
+</html>

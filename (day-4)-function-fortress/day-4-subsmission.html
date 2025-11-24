@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 4 Submission: Function Fortress</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 50px;
+      }
+      #result {
+        margin-top: 20px;
+        font-size: 18px;
+        color: blue;
+      }
+      form {
+        display: inline-block;
+        text-align: left;
+      }
+      label {
+        display: block;
+        margin: 10px 0 5px;
+      }
+      input,
+      select,
+      button {
+        padding: 8px;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Selamat Datang di Hari 4 Challenge: Function Fortress</h1>
+    <p>
+      Masukkan suhu dan pilih jenis konversi, lalu klik tombol untuk konversi.
+    </p>
+
+    <form id="converterForm">
+      <label for="tempInput">Suhu:</label>
+      <input
+        type="number"
+        id="tempInput"
+        placeholder="Masukkan suhu (misal: 25)"
+      />
+
+      <label for="conversionType">Konversi:</label>
+      <select id="conversionType">
+        <option value="c-to-f">Celsius ke Fahrenheit</option>
+        <option value="f-to-c">Fahrenheit ke Celsius</option>
+      </select>
+
+      <button type="button" id="convertButton">Konversi</button>
+    </form>
+
+    <!-- Area untuk menampilkan hasil -->
+    <div id="result"></div>
+
+    <script>
+      /*
+      Cara Solve Submission Day 4 (Penjelasan Langkah-Langkah):
+      1. Deklarasikan variabel untuk elemen HTML menggunakan document.getElementById() (misal: tempInput, conversionType, convertButton, resultDiv). Ini menyimpan referensi ke elemen agar bisa diakses di JS.
+      2. Buat fungsi konversi dengan parameter dan return value:
+         - celsiusToFahrenheit(temp): Ambil temp sebagai parameter, hitung (temp * 9/5) + 32, return hasil.
+         - fahrenheitToCelsius(temp): Ambil temp sebagai parameter, hitung (temp - 32) * 5/9, return hasil.
+      3. Buat fungsi utama convertTemperature() yang:
+         - Ambil nilai dari input, konversi ke number menggunakan parseFloat().
+         - Ambil jenis konversi dari dropdown.
+         - Gunakan if-else untuk panggil fungsi konversi yang sesuai berdasarkan jenis.
+         - Handle error: Jika input bukan angka, tampilkan pesan error.
+         - Tampilkan hasil di resultDiv menggunakan textContent.
+      4. Tambahkan event listener pada convertButton untuk 'click' event, panggil convertTemperature(). Ini membuat tombol bereaksi saat diklik.
+       */
+
+      // Langkah 1: Deklarasikan variabel untuk elemen HTML
+      // Menggunakan const karena nilai tidak berubah, dan document.getElementById() untuk mengambil elemen berdasarkan ID
+      // TODO: Isi deklarasi variabel (contoh: const tempInput = document.getElementById('tempInput');)
+      // const tempInput = ...;  // Variabel untuk input suhu
+      // const conversionType = ...;  // Variabel untuk dropdown konversi
+      // const convertButton = ...;  // Variabel untuk tombol konversi
+      // const resultDiv = ...;  // Variabel untuk div hasil
+
+      // Langkah 2: Buat fungsi konversi dengan parameter dan return value
+      // Fungsi ini menerima parameter temp (number), hitung konversi, dan return hasil
+      // Fungsi dengan parameter dan return value membuat kode lebih modular dan reusable
+      // TODO: Isi fungsi celsiusToFahrenheit (contoh: function celsiusToFahrenheit(temp) { return (temp * 9) / 5 + 32; })
+      // function celsiusToFahrenheit(temp) {
+      //   // Fungsi konversi C ke F
+      //   return ...;  // Rumus: (temp * 9/5) + 32, return hasil
+      // }
+
+      // TODO: Isi fungsi fahrenheitToCelsius (contoh: function fahrenheitToCelsius(temp) { return (temp - 32) * 5 / 9; })
+      // function fahrenheitToCelsius(temp) {
+      //   // Fungsi konversi F ke C
+      //   return ...;  // Rumus: (temp - 32) * 5/9, return hasil
+      // }
+
+      // Langkah 3: Buat fungsi utama convertTemperature()
+      // Fungsi ini dipanggil saat tombol diklik, panggil fungsi konversi berdasarkan jenis
+      // Function composition: memanggil fungsi lain dari dalam fungsi ini
+      function convertTemperature() {
+        // Ambil nilai dari input dan konversi ke number
+        // parseFloat() mengubah string menjadi float (angka desimal), penting karena input HTML selalu string
+        // TODO: Isi pengambilan nilai dan konversi (contoh: const temp = parseFloat(tempInput.value);)
+        // const temp = ...;  // Mengambil dan mengkonversi suhu
+        // Cek error: Jika input bukan angka, tampilkan pesan
+        // isNaN() mengecek apakah nilai bukan number
+        // TODO: Isi kondisi error (contoh: if (isNaN(temp)) { resultDiv.textContent = 'Error: Masukkan suhu yang valid (angka)!'; return; })
+        // if (...) { ... }
+        // Ambil jenis konversi dari dropdown
+        // Value dari select adalah 'c-to-f' atau 'f-to-c'
+        // TODO: Isi pengambilan jenis konversi (contoh: const type = conversionType.value;)
+        // const type = ...;  // Nilai dari select (c-to-f atau f-to-c)
+        // Gunakan if-else untuk panggil fungsi konversi yang sesuai
+        // if-else untuk memilih fungsi mana yang dipanggil berdasarkan type
+        // Parameter passing: kirim nilai temp ke fungsi, terima return value
+        // TODO: Isi if-else untuk panggil fungsi (contoh: if (type === 'c-to-f') { result = celsiusToFahrenheit(temp); resultDiv.textContent = `${temp}°C = ${result.toFixed(2)}°F`; })
+        // let result;  // Variabel untuk hasil konversi
+        // if (type === "c-to-f") {
+        //   // Jika C ke F
+        //   result = ...;  // Panggil fungsi celsiusToFahrenheit dengan parameter temp, simpan return value
+        //   resultDiv.textContent = ...;  // Tampilkan hasil dengan toFixed(2) untuk 2 desimal, format: "25°C = 77.00°F"
+        // } else if (type === "f-to-c") {
+        //   // Jika F ke C
+        //   result = ...;  // Panggil fungsi fahrenheitToCelsius dengan parameter temp, simpan return value
+        //   resultDiv.textContent = ...;  // Tampilkan hasil dengan toFixed(2) untuk 2 desimal, format: "77°F = 25.00°C"
+        // } else {
+        //   resultDiv.textContent = "Error: Jenis konversi tidak valid!";  // Fallback jika type tidak cocok
+        // }
+      }
+
+      // Langkah 4: Tambahkan event listener
+      // addEventListener mendengarkan event 'click' pada tombol, lalu panggil fungsi convertTemperature()
+      // TODO: Isi event listener (contoh: convertButton.addEventListener('click', convertTemperature);)
+      // ... .addEventListener(..., ...);  // Event listener untuk klik tombol
+
+      // Langkah 5: Fitur tambahan - Konversi Kelvin (belum ada, kerjakan dulu)
+      // Tambahkan option <option value="c-to-k">Celsius ke Kelvin</option> dan sebaliknya di select HTML
+      // TODO: Buat fungsi celsiusToKelvin(temp) dan kelvinToCelsius(temp), tambahkan kondisi di if-else
+      // function celsiusToKelvin(temp) { ... }  // Rumus: temp + 273.15
+      // function kelvinToCelsius(temp) { ... }  // Rumus: temp - 273.15
+      // Tambahkan else if untuk case 'c-to-k' dan 'k-to-c' di fungsi convertTemperature()
+    </script>
+  </body>
+</html>

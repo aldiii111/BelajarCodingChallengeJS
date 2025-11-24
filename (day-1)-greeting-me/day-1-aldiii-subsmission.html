@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Day 1 Submission: Basic JS Greeting</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="min-h-2xl flex justify-center items-start ">
+    <div class="flex flex-col gap-1 justify-center items-center bg-gray-200/70 rounded-xl p-20 pb-30 max-w-xl w-full">
+      <div class="flex flex-col">
+        <h1 class="text-4xl font-bold">Selamat Datang di Hari 1 Challenge</h1><br>
+        <p class="text-l">Masukkan nama kamu di bawah ini:</p>
+      </div>
+      <div class="flex flex-row">
+        <form id="form">
+          <!-- Input field untuk nama -->
+          <input type="text" class="border border-green-400 rounded-xl p-2 w-f" id="nameInput"
+            placeholder="Masukkan nama" />
+
+          <!-- Tombol untuk klik -->
+          <button class="bg-green-400 rounded-xl p-2 w-f" id="greetButton">Sapa Saya!</button>
+        </form>
+      </div>
+      <div>
+        <!-- Area untuk menampilkan hasil -->
+        <div id="output"></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const form = document.getElementById("form");
+    const output = document.getElementById("output");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const input = document.getElementById("nameInput").value;
+
+      if (input === ""){
+        output.textContent = "Silahkan disi terlebih dahulu";
+        output.style.color = "red";
+      } else if (input === "aldiii") {
+        output.textContent = "Selamat nama yang anda masukan sudah benar";
+        output.style.color = "green";
+      } else {
+        output.textContent = "Nama yang anda masukan salah";
+        output.style.color = "orange";
+      }
+    });
+  </script>
+</body>
+
+</html>

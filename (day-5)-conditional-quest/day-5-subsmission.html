@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 5 Submission: Conditional Quest</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 50px;
+      }
+      #score {
+        margin-top: 20px;
+        font-size: 18px;
+        color: green;
+      }
+      form {
+        display: inline-block;
+        text-align: left;
+      }
+      label {
+        display: block;
+        margin: 10px 0 5px;
+      }
+      input[type="radio"] {
+        margin-right: 5px;
+      }
+      button {
+        padding: 8px 16px;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Selamat Datang di Hari 5 Challenge: Conditional Quest</h1>
+    <p>
+      Jawab pertanyaan ya/tidak di bawah ini, lalu klik submit untuk cek skor.
+    </p>
+
+    <form id="quizForm">
+      <div>
+        <p id="question">
+          Pertanyaan: Apakah JavaScript adalah bahasa pemrograman? (Ya/Tidak)
+        </p>
+        <label> <input type="radio" name="answer" value="ya" /> Ya </label>
+        <label>
+          <input type="radio" name="answer" value="tidak" /> Tidak
+        </label>
+      </div>
+
+      <button type="button" id="submitButton">Submit</button>
+    </form>
+
+    <!-- Area untuk menampilkan skor -->
+    <div id="score"></div>
+
+    <script>
+      /*
+      Cara Solve Submission Day 5 (Penjelasan Langkah-Langkah):
+      1. Deklarasikan variabel untuk elemen HTML menggunakan document.getElementById() (misal: submitButton, scoreDiv). Ini menyimpan referensi ke elemen agar bisa diakses di JS.
+      2. Buat variabel counter untuk skor (misal: let score = 0;).
+      3. Buat fungsi checkAnswer() yang:
+         - Ambil jawaban dari radio button menggunakan document.querySelector('input[name="answer"]:checked').
+         - Gunakan if-else untuk cek jawaban: Jika 'ya', skor +1; jika 'tidak', skor tetap; jika tidak ada jawaban, pesan error.
+         - Update skor di scoreDiv menggunakan textContent.
+      4. Tambahkan event listener pada submitButton untuk 'click' event, panggil checkAnswer(). Ini membuat tombol bereaksi saat diklik.
+      */
+
+      // Langkah 1: Deklarasikan variabel untuk elemen HTML
+      // Menggunakan const karena nilai tidak berubah, dan document.getElementById() untuk mengambil elemen berdasarkan ID
+      // TODO: Isi deklarasi variabel (contoh: const submitButton = document.getElementById('submitButton');)
+      // const submitButton = ...;  // Variabel untuk tombol submit
+      // const scoreDiv = ...;  // Variabel untuk div skor
+
+      // Langkah 2: Buat variabel counter untuk skor
+      // Menggunakan let karena skor bisa berubah (mutable)
+      // Counter digunakan untuk menghitung berapa kali user menjawab benar
+      // TODO: Isi inisialisasi skor (contoh: let score = 0;)
+      // let score = ...;  // Inisialisasi skor awal 0
+
+      // Langkah 3: Buat fungsi checkAnswer()
+      // Fungsi ini dipanggil saat tombol diklik, cek jawaban dan update skor
+      // Boolean logic: cek kondisi true/false untuk menentukan aksi
+      function checkAnswer() {
+        // Ambil jawaban dari radio button yang dipilih
+        // querySelector mengambil elemen yang cocok dengan CSS selector
+        // :checked adalah pseudo-class untuk radio/checkbox yang dipilih
+        // name="answer" untuk target group radio button yang sama
+        // TODO: Isi pengambilan jawaban (contoh: const selectedAnswer = document.querySelector('input[name="answer"]:checked');)
+        // const selectedAnswer = ...;  // Ambil radio button yang checked
+        // Cek jika ada jawaban dipilih
+        // if-else untuk kondisi boolean (ada/tidak ada jawaban)
+        // selectedAnswer akan bernilai null jika tidak ada yang dipilih (falsy), atau object element jika ada (truthy)
+        // TODO: Isi kondisi if untuk cek jawaban (contoh: if (selectedAnswer) { ... })
+        // if (...) {
+        //   // Jika ada jawaban (boolean true)
+        //   // Ambil value dari radio button (value="ya" atau value="tidak")
+        //   const answerValue = ...;  // Ambil value dari radio (ya atau tidak)
+        //
+        //   // Nested if-else: cek apakah jawaban 'ya' atau 'tidak'
+        //   // Comparison operator === untuk cek kesamaan strict (tipe dan nilai)
+        //   // TODO: Isi if-else untuk cek jawaban 'ya' atau 'tidak' (contoh: if (answerValue === 'ya') { score += 1; scoreDiv.textContent = `Benar! Skor kamu: ${score}`; })
+        //   if (answerValue === "ya") {
+        //     // Jika jawaban 'ya' (benar)
+        //     score ...;  // Tambah skor menggunakan counter (increment operator +=)
+        //     scoreDiv.textContent = ...;  // Tampilkan skor dengan template literal `Benar! Skor kamu: ${score}`
+        //   } else {
+        //     // Jika jawaban 'tidak' (salah)
+        //     scoreDiv.textContent = ...;  // Tampilkan skor tanpa tambah, format `Salah! Skor kamu: ${score}`
+        //   }
+        // } else {
+        //   // Jika tidak ada jawaban dipilih (boolean false)
+        //   // TODO: Isi pesan error (contoh: scoreDiv.textContent = 'Error: Pilih jawaban ya atau tidak!';)
+        //   scoreDiv.textContent = ...;  // Pesan error
+        // }
+      }
+
+      // Langkah 4: Tambahkan event listener
+      // addEventListener mendengarkan event 'click' pada tombol, lalu panggil fungsi checkAnswer()
+      // TODO: Isi event listener (contoh: submitButton.addEventListener('click', checkAnswer);)
+      // ... .addEventListener(..., ...);  // Event listener untuk klik tombol
+
+      // Langkah 5: Fitur tambahan - Reset skor (belum ada, kerjakan dulu)
+      // Tambahkan <button type="button" id="resetButton">Reset Skor</button> di HTML
+      // TODO: Deklarasikan tombol reset, buat fungsi resetScore() untuk set score = 0 dan clear tampilan, tambahkan addEventListener
+      // const resetButton = ...;
+      // function resetScore() { ... }  // Fungsi untuk reset skor ke 0 dan clear scoreDiv
+      // ... .addEventListener(..., ...);
+    </script>
+  </body>
+</html>

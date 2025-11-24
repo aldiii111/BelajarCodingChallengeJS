@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 5 Submission: Conditional Quest</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 50px;
+      }
+      #score {
+        margin-top: 20px;
+        font-size: 18px;
+        color: green;
+      }
+      form {
+        display: inline-block;
+        text-align: left;
+      }
+      label {
+        display: block;
+        margin: 10px 0 5px;
+      }
+      input[type="radio"] {
+        margin-right: 5px;
+      }
+      button {
+        padding: 8px 16px;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Selamat Datang di Hari 5 Challenge: Conditional Quest</h1>
+    <p>
+      Jawab pertanyaan ya/tidak di bawah ini, lalu klik submit untuk cek skor.
+    </p>
+
+    <form id="quizForm">
+      <div>
+        <p id="question">
+          Pertanyaan: Apakah JavaScript adalah bahasa pemrograman? (Ya/Tidak)
+        </p>
+        <label> <input type="radio" name="answer" value="ya" /> Ya </label>
+        <label>
+          <input type="radio" name="answer" value="tidak" /> Tidak
+        </label>
+      </div>
+
+      <button type="button" id="submitButton">Submit</button>
+    </form>
+
+    <!-- Area untuk menampilkan skor -->
+    <div id="score"></div>
+
+    <script>
+      /*
+      Cara Solve Submission Day 5 (Penjelasan Langkah-Langkah):
+      1. Deklarasikan variabel untuk elemen HTML menggunakan document.getElementById() (misal: submitButton, scoreDiv). Ini menyimpan referensi ke elemen agar bisa diakses di JS.
+      2. Buat variabel counter untuk skor (misal: let score = 0;).
+      3. Buat fungsi checkAnswer() yang:
+         - Ambil jawaban dari radio button menggunakan document.querySelector('input[name="answer"]:checked').
+         - Gunakan if-else untuk cek jawaban: Jika 'ya', skor +1; jika 'tidak', skor tetap; jika tidak ada jawaban, pesan error.
+         - Update skor di scoreDiv menggunakan textContent.
+      4. Tambahkan event listener pada submitButton untuk 'click' event, panggil checkAnswer(). Ini membuat tombol bereaksi saat diklik.
+      */
+
+      // Langkah 1: Deklarasikan variabel untuk elemen HTML
+      // Menggunakan const karena nilai tidak berubah, dan document.getElementById() untuk mengambil elemen berdasarkan ID
+      const submitButton = document.getElementById("submitButton"); // Variabel untuk tombol submit
+      const scoreDiv = document.getElementById("score"); // Variabel untuk div skor
+
+      // Langkah 2: Buat variabel counter untuk skor
+      // Menggunakan let karena skor bisa berubah
+      let score = 0; // Inisialisasi skor awal 0
+
+      // Langkah 3: Buat fungsi checkAnswer()
+      // Fungsi ini dipanggil saat tombol diklik, cek jawaban dan update skor
+      function checkAnswer() {
+        // Ambil jawaban dari radio button yang dipilih
+        // querySelector mengambil elemen yang cocok, :checked untuk radio yang selected
+        const selectedAnswer = document.querySelector(
+          'input[name="answer"]:checked'
+        ); // Ambil radio button yang checked
+
+        // Cek jika ada jawaban dipilih
+        // if-else untuk kondisi boolean (ada/tidak ada jawaban)
+        if (selectedAnswer) {
+          // Jika ada jawaban (boolean true)
+          const answerValue = selectedAnswer.value; // Ambil value dari radio (ya atau tidak)
+          if (answerValue === "ya") {
+            // Jika jawaban 'ya' (benar)
+            score += 1; // Tambah skor menggunakan counter
+            scoreDiv.textContent = `Benar! Skor kamu: ${score}`; // Tampilkan skor
+          } else {
+            // Jika jawaban 'tidak' (salah)
+            scoreDiv.textContent = `Salah! Skor kamu: ${score}`; // Tampilkan skor tanpa tambah
+          }
+        } else {
+          // Jika tidak ada jawaban dipilih (boolean false)
+          scoreDiv.textContent = "Error: Pilih jawaban ya atau tidak!"; // Pesan error
+        }
+      }
+
+      // Langkah 4: Tambahkan event listener
+      // addEventListener mendengarkan event 'click' pada tombol, lalu panggil fungsi checkAnswer()
+      submitButton.addEventListener("click", checkAnswer); // Event listener untuk klik tombol
+    </script>
+  </body>
+</html>

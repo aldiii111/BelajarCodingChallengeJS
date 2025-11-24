@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 2 Submission: Variable Vortex</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 50px;
+      }
+      #result {
+        margin-top: 20px;
+        font-size: 18px;
+        color: green;
+      }
+      form {
+        display: inline-block;
+        text-align: left;
+      }
+      label {
+        display: block;
+        margin: 10px 0 5px;
+      }
+      input,
+      select,
+      button {
+        padding: 8px;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Selamat Datang di Hari 2 Challenge: Variable Vortex</h1>
+    <p>Masukkan dua angka dan pilih operasi untuk menghitung hasilnya.</p>
+
+    <form id="calculatorForm">
+      <label for="num1">Angka Pertama:</label>
+      <input type="text" id="num1" placeholder="Masukkan angka pertama" />
+
+      <label for="operation">Operasi:</label>
+      <select id="operation">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+      </select>
+
+      <label for="num2">Angka Kedua:</label>
+      <input type="text" id="num2" placeholder="Masukkan angka kedua" />
+
+      <button type="button" id="calculateButton">Hitung</button>
+    </form>
+
+    <!-- Area untuk menampilkan hasil -->
+    <div id="result"></div>
+
+    <script>
+      /*
+      Cara Solve Submission Day 2 (Penjelasan Langkah-Langkah):
+      1. Deklarasikan variabel untuk elemen HTML menggunakan document.getElementById() (misal: num1, num2, operation, calculateButton, resultDiv). Ini menyimpan referensi ke elemen agar bisa diakses di JS.
+      2. Buat fungsi calculate() yang:
+         - Ambil nilai dari input num1 dan num2, konversi ke number menggunakan parseFloat() (karena input HTML adalah string).
+         - Ambil nilai operasi dari dropdown.
+         - Gunakan switch untuk operasi aritmatika (+, -, *, /) – lebih bersih daripada if-else untuk banyak kondisi.
+         - Handle error: Jika input bukan angka (isNaN), tampilkan pesan error; jika pembagian nol, tampilkan pesan khusus.
+         - Tampilkan hasil di resultDiv menggunakan textContent.
+      3. Tambahkan event listener pada calculateButton untuk 'click' event, panggil calculate(). Ini membuat tombol bereaksi saat diklik.
+      4. (Fitur tambahan yang belum ada: Tambahkan tombol "Reset" untuk clear semua input dan hasil. Deklarasikan tombol baru, buat fungsi resetCalculator(), dan addEventListener.)
+      */
+
+      // Langkah 1: Deklarasikan variabel untuk elemen HTML
+      // Menggunakan const karena nilai tidak berubah, dan document.getElementById() untuk mengambil elemen berdasarkan ID
+      // TODO: Isi deklarasi variabel di sini (contoh: const num1Input = document.getElementById('num1');)
+      // const num1Input = ...;  // Variabel untuk input angka pertama
+      // const num2Input = ...;  // Variabel untuk input angka kedua
+      // const operationSelect = ...;  // Variabel untuk dropdown operasi
+      // const calculateButton = ...;  // Variabel untuk tombol hitung
+      // const resultDiv = ...;  // Variabel untuk div hasil
+
+      // Langkah 2: Buat fungsi calculate()
+      // Fungsi ini dipanggil saat tombol diklik, menghitung berdasarkan input
+      function calculate() {
+        // Ambil nilai dari input dan konversi ke number menggunakan parseFloat()
+        // parseFloat() mengubah string menjadi float (angka desimal), penting karena input HTML selalu string
+        // TODO: Isi pengambilan nilai dan konversi (contoh: const num1 = parseFloat(num1Input.value);)
+        // const num1 = ...;  // Mengambil dan mengkonversi angka pertama
+        // const num2 = ...;  // Mengambil dan mengkonversi angka kedua
+        // const operation = ...;  // Mengambil nilai operasi dari dropdown
+        // Cek error: Jika salah satu input bukan angka, tampilkan pesan
+        // isNaN() mengecek apakah nilai bukan number
+        // TODO: Isi kondisi error (contoh: if (isNaN(num1) || isNaN(num2)) { resultDiv.textContent = 'Error: Masukkan angka yang valid!'; return; })
+        // if (...) { ... }
+        // Gunakan switch untuk operasi aritmatika
+        // Switch lebih efisien untuk banyak case daripada if-else
+        // TODO: Isi switch statement (contoh: switch (operation) { case '+': result = num1 + num2; break; ... })
+        // let result;  // Variabel untuk menyimpan hasil perhitungan
+        // switch (...) { ... }
+        // Tampilkan hasil di div
+        // textContent mengubah teks di elemen HTML
+        // TODO: Isi tampilan hasil (contoh: resultDiv.textContent = `Hasil: ${result}`;)
+        // ... = ...;
+      }
+
+      // Langkah 3: Tambahkan event listener
+      // addEventListener mendengarkan event 'click' pada tombol, lalu panggil fungsi calculate()
+      // TODO: Isi event listener (contoh: calculateButton.addEventListener('click', calculate);)
+      // ... .addEventListener(..., ...);
+
+      // Langkah 4: Fitur tambahan - Tombol Reset (belum ada, kerjakan dulu)
+      // Tambahkan <button type="button" id="resetButton">Reset</button> di form HTML
+      // TODO: Deklarasikan tombol reset, buat fungsi resetCalculator(), dan addEventListener
+      // const resetButton = ...;
+      // function resetCalculator() { ... }  // Fungsi untuk clear input dan hasil
+      // ... .addEventListener(..., ...);
+    </script>
+  </body>
+</html>
