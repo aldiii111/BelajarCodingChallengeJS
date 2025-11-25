@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Day 2 Submission: Variable Vortex</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      color: green;
+    }
+
+    form {
+      display: inline-block;
+      text-align: left;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+
+    input,
+    select,
+    button {
+      padding: 8px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Selamat Datang di Hari 2 Challenge: Variable Vortex</h1>
+  <p>Masukkan dua angka dan pilih operasi untuk menghitung hasilnya.</p>
+
+  <form id="calculatorForm">
+    <label for="num1">Angka Pertama:</label>
+    <input type="text" id="num1" placeholder="Masukkan angka pertama" />
+
+    <label for="operation">Operasi:</label>
+    <select id="operation">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">x</option>
+      <option value="/">÷</option>
+    </select>
+
+    <label for="num2">Angka Kedua:</label>
+    <input type="text" id="num2" placeholder="Masukkan angka kedua" />
+
+    <button type="button" id="calculateButton">Hitung</button>
+    <button type="button" id="resetButton">Reset</button>
+  </form>
+
+  <!-- Area untuk menampilkan hasil -->
+  <div id="result"></div>
+
+  <script>
+    const num1Input = document.getElementById("num1");
+    const num2Input = document.getElementById("num2");
+    const operationSelect = document.getElementById("operation");
+    const hitungButton = document.getElementById("calculateButton");
+    const resultDiv = document.getElementById("result");
+
+    function calculate() {
+
+      const num1 = parseFloat(num1Input.value);
+      const num2 = parseFloat(num2Input.value);
+      const operation = operationSelect.value;
+
+      if (isNaN(num1) || isNaN(num2)) {
+        resultDiv.textContent = "Error bg harus number";
+        return;
+      }
+      let result;
+      switch (operation) {
+        case "+":
+          result = num1 + num2;
+          break;
+        case "-":
+          result = num1 - num2;
+          break;
+        case "*":
+          break;
+          result = num1 * num2;
+        case "/":
+          if (num2 === 0) {
+            resultDiv.textContent = "Error: pembagian tidak bisa dibagi dengan nol";
+            return;
+          }
+          result = num1 / num2;
+          break;
+        default:
+          resultDiv.textContent = "Error operasi tidak bisa/valid"
+          return;
+      }
+      resultDiv.textContent = `Hasil: ${result}`;
+    }
+
+    hitungButton.addEventListener("click", calculate)
+
+    function resetCalculator() {
+
+      const resetButton = document.getElementById("resetButton");
+
+      if (resetButton =) {
+
+      }
+    }
+
+  </script>
+</body>
+
+</html>
