@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 3 Submission: String Sorcerer</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 50px;
+      }
+      #output {
+        margin-top: 20px;
+        font-size: 18px;
+        color: purple;
+      }
+      input,
+      button {
+        padding: 8px;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Selamat Datang di Hari 3 Challenge: String Sorcerer</h1>
+    <p>
+      Masukkan panjang kata yang diinginkan, lalu klik tombol untuk generate
+      kata acak.
+    </p>
+
+    <input
+      type="number"
+      id="lengthInput"
+      placeholder="Panjang kata (misal: 5)"
+      min="1"
+    />
+    <button id="generateButton">Generate Kata</button>
+
+    <!-- Area untuk menampilkan hasil -->
+    <div id="output"></div>
+
+    <script>
+      /*
+      Cara Solve Submission Day 3 (Penjelasan Langkah-Langkah):
+      1. Deklarasikan variabel untuk elemen HTML menggunakan document.getElementById() (misal: lengthInput, generateButton, outputDiv). Ini menyimpan referensi ke elemen agar bisa diakses di JS.
+      2. Buat array alphabet sebagai dasar untuk generate kata (string 'abcdefghijklmnopqrstuvwxyz').
+      3. Buat fungsi generateRandomWord() yang:
+         - Ambil panjang dari input, konversi ke number menggunakan parseInt().
+         - Gunakan loop for untuk generate huruf random: Math.random() untuk index random, slice() untuk ambil huruf dari alphabet, concat() untuk gabung ke string.
+         - Handle error: Jika panjang tidak valid (isNaN atau <1), tampilkan pesan error.
+         - Tampilkan kata di outputDiv menggunakan textContent.
+      4. Tambahkan event listener pada generateButton untuk 'click' event, panggil generateRandomWord(). Ini membuat tombol bereaksi saat diklik.
+      */
+
+      // Langkah 1: Deklarasikan variabel untuk elemen HTML
+      // Menggunakan const karena nilai tidak berubah, dan document.getElementById() untuk mengambil elemen berdasarkan ID
+      // const lengthInput = ...; // Variabel untuk input panjang kata
+      // const generateButton = ...; // Variabel untuk tombol generate
+      // const outputDiv = ...; // Variabel untuk div output
+
+      // Langkah 2: Buat array alphabet
+      // Array ini berisi huruf-huruf alfabet sebagai bahan dasar generate kata acak
+      // const alphabet = ...; // String alphabet sebagai array dasar
+
+      // Langkah 3: Buat fungsi generateRandomWord()
+      // Fungsi ini dipanggil saat tombol diklik, generate kata berdasarkan panjang input
+      function generateRandomWord() {
+        // Ambil nilai dari input dan konversi ke number menggunakan parseInt()
+        // parseInt() mengubah string menjadi integer (angka bulat), penting karena input HTML selalu string
+        // TODO: Isi pengambilan nilai dan konversi (contoh: const length = parseInt(lengthInput.value);)
+        // const length = ...;  // Mengambil dan mengkonversi panjang kata
+        // Cek error: Jika panjang tidak valid, tampilkan pesan
+        // isNaN() mengecek apakah nilai bukan number, <1 untuk validasi panjang minimal
+        // TODO: Isi kondisi error (contoh: if (isNaN(length) || length < 1) { outputDiv.textContent = 'Error: Masukkan panjang kata yang valid (angka positif)!'; return; })
+        // if (...) { ... }
+        // Loop untuk generate kata: Untuk setiap karakter, pilih random dari alphabet
+        // Math.random() menghasilkan angka 0-1, * alphabet.length untuk index, Math.floor() bulatkan ke bawah
+        // slice(index, index+1) ambil 1 huruf, concat() gabung ke word
+        // TODO: Isi loop dan proses generate kata (contoh: let word = ''; for (let i = 0; i < length; i++) { ... })
+        // let word = ...;  // Inisialisasi string kosong untuk kata
+        // for (...) {
+        //   const randomIndex = ...;  // Index random dari 0 sampai panjang alphabet
+        //   const randomLetter = ...;  // Ambil 1 huruf dari alphabet menggunakan slice
+        //   word = ...;  // Gabung huruf ke word menggunakan concat
+        // }
+        // Tampilkan kata di div
+        // textContent mengubah teks di elemen HTML
+        // TODO: Isi tampilan hasil (contoh: outputDiv.textContent = `Kata Acak: ${word}`;)
+        // ... = ...;
+      }
+
+      // Langkah 4: Tambahkan event listener
+      // addEventListener mendengarkan event 'click' pada tombol, lalu panggil fungsi generateRandomWord()
+      // TODO: Isi event listener (contoh: generateButton.addEventListener('click', generateRandomWord);)
+      // ... .addEventListener(..., ...);
+    </script>
+  </body>
+</html>
