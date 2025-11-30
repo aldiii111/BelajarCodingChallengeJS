@@ -69,6 +69,7 @@
     const operationSelect = document.getElementById("operation");
     const hitungButton = document.getElementById("calculateButton");
     const resultDiv = document.getElementById("result");
+    const resetButton = document.getElementById("resetButton")
 
     function calculate() {
 
@@ -105,9 +106,17 @@
       resultDiv.textContent = `Hasil: ${result}`;
     }
 
-    hitungButton.addEventListener("click", calculate)
+    function reset() {
+      num1Input.value = ""
+      num2Input.value = ""
+      operationSelect.value = "+"
+      resultDiv.textContent = ""
+    }
 
-    //function reset menyusul cuy
+    resetButton.addEventListener("click", reset)
+    hitungButton.addEventListener("click", calculate)
+    
+    
 
   </script>
 </body>
